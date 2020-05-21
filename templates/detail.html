@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<center>
+  <h1>Blogs By {{ blog.hunter.username }}</h1>
+  </center>
+  {% for i in x.all %}
+{% if blog.hunter.username == i.hunter.username %}
+<section class="section is-primary">
+  <div class="container">
+        <div class="blog-card">
+          <div class="description">
+            <h1>{{ i.title }}</h1>
+            <p>
+              {{ i.body }}
+            </p>
+            <h2>By - {{ i.hunter.username }}</h2>
+            <br>
+            {% if user.is_authenticated and request.user.username == i.hunter.username %}
+            <h2 onclick="window.location='{% url 'delete_view' i.id %}';" style="cursor:pointer;">Delete Blog</h2>
+            {% endif %}
+          </div>
+        </div>
+    </div>
+
+</section>
+<br>
+<hr>
+{% endif %}
+  {% endfor %}
+{% endblock %}

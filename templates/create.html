@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="login-box">
+  <h2>Create</h2>
+  <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data" id="usrform">
+    {% csrf_token %}
+    <div class="user-box">
+      <input type="text" name="title" required="">
+      <label>Title</label>
+    </div>
+
+    <div class="user-box">
+      <textarea name="body" form="usrform"></textarea>
+      <label>Body</label>
+    </div>
+    <a href="#" type="submit">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <input type="submit" value="Add Blog">
+      {% if error %}
+            {{error}}
+            <br />
+            {% endif %}
+    </a>
+
+  </form>
+</div>
+{% endblock %}

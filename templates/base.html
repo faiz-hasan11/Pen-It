@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>PenIt</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans|Oswald:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<style media="screen">
+  .navbar {
+  margin-bottom: 0;
+  background-color: #373737;
+  font-size: 12px;
+  letter-spacing: 6px;
+  font-family: Montserrat, sans-serif;
+  }
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    font: 11px "Open Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: auto;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-flow: column nowrap;
+    -webkit-box-pack: justify;
+            justify-content: space-between;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .generic-anchor {
+    color: #ff4a4a;
+  }
+  .generic-anchor:visited {
+    color: #ff4a4a;
+  }
+  .generic-anchor:hover {
+    color: #ccc;
+  }
+
+  .flex-rw {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-flow: row wrap;
+  }
+
+  main {
+    -webkit-box-flex: 1;
+            flex: 1 1 auto;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+    font: 10em "Oswald", sans-serif;
+    color: #9b9b9b;
+    line-height: 1;
+  }
+
+  footer {
+    background: #373737;
+    margin-top: auto;
+    width: 100%;
+  }
+
+  .footer-list-top {
+    width: 33.333%;
+  }
+
+  .footer-list-top > li {
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  .footer-list-header {
+    padding: 10px 0 5px 0;
+    color: #fff;
+    font: 2.3vw "Oswald", sans-serif;
+  }
+
+  .footer-list-anchor {
+    font: 1.3em "Open Sans", sans-serif;
+  }
+
+  .footer-social-section {
+    width: 100%;
+    -webkit-box-align: center;
+            align-items: center;
+    justify-content: space-around;
+    position: relative;
+    margin-top: 5px;
+  }
+
+  .footer-social-section::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 10px;
+    border-top: 1px solid #ccc;
+    width: calc(100% - 20px);
+  }
+
+  .footer-social-overlap {
+    position: relative;
+    z-index: 2;
+    background: #373737;
+    padding: 0 20px;
+  }
+
+  .footer-social-connect {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    font: 3.5em "Oswald", sans-serif;
+    color: #fff;
+  }
+
+  .footer-social-small {
+    font-size: 0.6em;
+    padding: 0px 20px;
+  }
+
+  .footer-social-overlap > a {
+    font-size: 3em;
+  }
+
+  .footer-social-overlap > a:not(:first-child) {
+    margin-left: 0.38em;
+  }
+
+  .footer-bottom-section {
+    width: 100%;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+  }
+
+  .footer-bottom-section > div:first-child {
+    margin-right: auto;
+  }
+
+  .footer-bottom-wrapper {
+    font-size: 1.5em;
+    color: #fff;
+  }
+
+  .footer-address {
+    display: inline;
+    font-style: normal;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .footer-list-header {
+      font-size: 2em;
+    }
+
+    .footer-list-anchor {
+      font-size: 1.1em;
+    }
+
+    .footer-social-connect {
+      font-size: 2.5em;
+    }
+
+    .footer-social-overlap > a {
+      font-size: 2.24em;
+    }
+
+    .footer-bottom-wrapper {
+      font-size: 1.3em;
+    }
+  }
+  @media only screen and (max-width: 568px) {
+    main {
+      font-size: 5em;
+    }
+
+    .footer-list-top {
+      width: 100%;
+    }
+
+    .footer-list-header {
+      font-size: 3em;
+    }
+
+    .footer-list-anchor {
+      font-size: 1.5em;
+    }
+
+    .footer-social-section {
+      -webkit-box-pack: center;
+              justify-content: center;
+    }
+
+    .footer-social-section::after {
+      top: 25%;
+    }
+
+    .footer-social-connect {
+      margin-bottom: 10px;
+      padding: 0 10px;
+    }
+
+    .footer-social-overlap {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-pack: center;
+              justify-content: center;
+    }
+
+    .footer-social-icons-wrapper {
+      width: 100%;
+      padding: 0;
+    }
+
+    .footer-social-overlap > a:not(:first-child) {
+      margin-left: 20px;
+    }
+
+    .footer-bottom-section {
+      padding: 0 5px 10px 5px;
+    }
+
+    .footer-bottom-wrapper {
+      text-align: center;
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+  @media only screen and (max-width: 480px) {
+    .footer-social-overlap > a {
+      margin: auto;
+    }
+
+    .footer-social-overlap > a:not(:first-child) {
+      margin-left: 0;
+    }
+
+    .footer-bottom-rights {
+      display: block;
+    }
+  }
+  @media only screen and (max-width: 320px) {
+    .footer-list-header {
+      font-size: 2.2em;
+    }
+
+    .footer-list-anchor {
+      font-size: 1.2em;
+    }
+
+    .footer-social-connect {
+      font-size: 2.4em;
+    }
+
+    .footer-social-overlap > a {
+      font-size: 2.24em;
+    }
+
+    .footer-bottom-wrapper {
+      font-size: 1.3em;
+    }
+  }
+
+
+
+
+  .login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+  }
+
+  .login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
+
+  .login-box .user-box {
+    position: relative;
+  }
+
+  .login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  .login-box .user-box textarea {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  .login-box .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+  }
+  .login-box .user-box textarea:focus ~ label,
+  .login-box .user-box textarea:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+  }
+
+  .login-box form a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #03e9f4;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+  }
+
+  .login-box a:hover {
+    background: #03e9f4;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 100px #03e9f4;
+  }
+
+  .login-box a span {
+    position: absolute;
+    display: block;
+  }
+
+  .login-box a span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: btn-anim1 1s linear infinite;
+  }
+
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+    50%,100% {
+      left: 100%;
+    }
+  }
+
+  .login-box a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+  }
+
+  @keyframes btn-anim2 {
+    0% {
+      top: -100%;
+    }
+    50%,100% {
+      top: 100%;
+    }
+  }
+
+  .login-box a span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+  }
+
+  @keyframes btn-anim3 {
+    0% {
+      right: -100%;
+    }
+    50%,100% {
+      right: 100%;
+    }
+  }
+
+  .login-box a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #03e9f4);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+  }
+
+  @keyframes btn-anim4 {
+    0% {
+      bottom: -100%;
+    }
+    50%,100% {
+      bottom: 100%;
+    }
+  }
+
+  .blog-card {
+      display: flex;
+      flex-direction: column;
+      margin: 0.5rem auto;
+      box-shadow: 0 3px 7px -1px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.6%;
+      background: #fff;
+      line-height: 1.4;
+      border-radius: 10px;
+      overflow: hidden;
+      z-index: 0;
+  }
+
+  .blog-card a {
+      color: inherit;
+  }
+
+  .blog-card a:hover {
+      color: #5ad67d;
+  }
+
+
+  .blog-card .details,
+  .blog-card .details ul {
+      margin: auto;
+      padding: 0;
+      list-style: none;
+  }
+
+  .blog-card .details {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -100%;
+      margin: auto;
+      transition: left 0.2s;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 10px;
+      width: 100%;
+      font-size: 0.9rem;
+  }
+
+  .blog-card .details a {
+      text-decoration: dotted underline;
+  }
+
+  .blog-card .details ul li {
+      display: inline-block;
+  }
+
+  .blog-card .details .author:before {
+      font-family: FontAwesome;
+      margin-right: 10px;
+      content: "";
+  }
+
+  .blog-card .details .date:before {
+      font-family: FontAwesome;
+      margin-right: 10px;
+      content: "";
+  }
+
+  .blog-card .details .tags ul:before {
+      font-family: FontAwesome;
+      content: "";
+      margin-right: 10px;
+  }
+
+  .blog-card .details .tags li {
+      margin-right: 2px;
+  }
+
+  .blog-card .details .tags li:first-child {
+      margin-left: -4px;
+  }
+
+  .blog-card .description {
+      padding: 1rem;
+      background: #fff;
+      position: relative;
+      z-index: 1;
+  }
+
+  .blog-card .description:before {
+    content: "";
+    border-radius: 10px;
+    background: #fff;
+    width: 100%;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+
+  .blog-card .description h1 {
+      line-height: 1;
+      margin: 0;
+      font-size: 2.5rem;
+  }
+
+  .blog-card .description h2 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      color: #a2a2a2;
+      margin-top: 5px;
+  }
+
+  .blog-card .description .card-actions {
+      text-align: center;
+  }
+
+  .blog-card .description .card-actions a {
+      display: inline-block;
+      position: relative;
+  }
+
+  .blog-card .description .card-actions a:hover {
+    color: black !important;
+  }
+
+  .blog-card p {
+      position: relative;
+      margin: 1rem 0 0;
+      font-size: 1.5rem;
+  }
+
+  .blog-card p:first-of-type {
+      margin-top: 1.25rem;
+  }
+
+  .blog-card p:first-of-type:before {
+      content: "";
+      position: absolute;
+      height: 5px;
+      background: #5ad67d;
+      width: 35px;
+      top: -0.75rem;
+      border-radius: 3px;
+      text-align:left;
+      height: 3px;
+      border-radius: 50px;
+      background: #d52623;
+      /* width: 60px; */
+  }
+
+  .blog-card:hover .details {
+      left: 0%;
+  }
+
+  @media (min-width: 640px) {
+      .blog-card {
+          flex-direction: row;
+          max-width: 700px;
+          min-height: 160px
+      }
+      /*.blog-card .image-wrapper {
+          flex-basis: 40%;
+          height: auto;
+      }*/
+      .blog-card .description {
+          flex-basis: 100%;
+      }
+      .blog-card .description:before {
+          /* transform: skewX(-3deg); */
+          content: "";
+          border-radius: 10px;
+          background: #fff;
+          width: 30px;
+          position: absolute;
+          left: -10px;
+          top: 0;
+          bottom: 0;
+          z-index: -1;
+      }
+      .blog-card.alt {
+          flex-direction: row-reverse;
+      }
+      .blog-card.alt .description:before {
+          left: inherit;
+          right: -10px;
+          /* transform: skew(3deg); */
+      }
+      .blog-card.alt .details {
+          padding-left: 25px;
+      }
+  }
+</style>
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<header>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+			<a class="navbar-brand"><b>PenIt</b></a>
+		</div>
+		<!-- end navbar header -->
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+
+        {% if user.is_authenticated %}
+
+              <li><a href="{% url 'home' %}">HOME</a></li>
+              <li><a href="{% url 'create' %}">CREATE</a></li>
+              <li><a href="javascript:{document.getElementById('logout').submit()}">LOGOUT</a></li>
+              <li><a >Welcome {{ user }}</a></li>
+              <form id="logout" action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden"/>
+              </form>
+
+
+              {% else %}
+              <li><a href="{% url 'home' %}">HOME</a></li>
+              <li><a href="{% url 'signup' %}">SIGN UP</a></li>
+      				<li><a href="{% url 'login' %}">LOGIN</a></li>
+              {% endif %}
+
+
+
+
+
+
+			</ul>
+		</div>
+		<!-- End Collapse Nav Div -->
+	</div>
+	<!--End Nav Div -->
+</nav>
+<!--Some of this HTML is directly from Pavilion.  You can change it to whatever you want if you want to mimic this design.-->
+</header>
+<br><br><br><br><br>
+<div class="container">
+  {% block content %}
+
+
+  {% endblock %}
+</div>
+
+
+
+<footer class="flex-rw">
+  <section class="footer-social-section flex-rw">
+      <span class="footer-social-overlap footer-social-connect" >
+      Made By <span class="footer-social-small">Syed Faiz Hasan</span>
+      </span>
+      <span class="footer-social-overlap footer-social-icons-wrapper">
+      <a href="https://www.facebook.com/faizhasan11/" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fa fa-facebook"></i></a>
+      <a href="https://www.instagram.com/faiz_hasan11/" class="generic-anchor" target="_blank" title="Instagram" itemprop="significantLink"><i class="fa fa-instagram"></i></a>
+      <a href="https://github.com/faiz-hasan11" class="generic-anchor" target="_blank" title="Youtube" itemprop="significantLink"><i class="fa fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/syed-faiz-hasan-3249071a9/" class="generic-anchor" target="_blank" title="Facebook" itemprop="significantLink"><i class="fa fa-linkedin"></i></a>
+          </span>
+  </section>
+  </footer>
+<!-- partial -->
+  <!-- <script  src="./script.js"></script> -->
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<center>
+  <div class="container">
+
+
+  
+
+  <h2 style="color: #f2f2f2; background: #ff4a4a; font-size: 75px; line-height: 74px; font-weight: 700; margin: 0 5px 24px; float: left; padding: 10px; margin: 0 5px 24px; font-family: 'Libre Baskerville', serif;">
+    “Don’t focus on having a great blog. Focus on producing a blog that’s great for your readers.”
+  </h2>
+  </div>
+</center>
+
+
+<hr>
+{% for i in blogs.all %}
+<section class="section is-primary">
+<div class="container" onclick="window.location='{% url 'detail' i.id %}';" style="cursor:pointer;">
+      <div class="blog-card">
+        <div class="description">
+          <h1>{{ i.title }}</h1>
+          <p>
+            {{ i.summary }}
+          </p>
+          <h2>By {{ i.hunter.username }}</h2>
+        </div>
+      </div>
+  </div>
+
+</section>
+<br>
+<hr>
+{% endfor %}
+
+
+{% endblock %}
